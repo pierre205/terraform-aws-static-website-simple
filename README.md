@@ -2,46 +2,58 @@
 
 **Déploiement automatisé d'un site web statique sur AWS avec Terraform**
 
-Un projet d'infrastructure as code pour héberger un site web statique sur AWS avec S3, CloudFront et HTTPS automatique.
+![AWS](https://img.shields.io/badge/AWS-S3%20%2B%20CloudFront-orange) ![Terraform](https://img.shields.io/badge/Terraform-1.0%2B-purple) ![HTTPS](https://img.shields.io/badge/HTTPS-Enabled-green)
 
-![AWS](https://img.shields.io/badge/AWS-S3%20%2B%20CloudFront-orange)
-![Terraform](https://img.shields.io/badge/Terraform-1.0%2B-purple)
-![HTTPS](https://img.shields.io/badge/HTTPS-Enabled-green)
-![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
+## 📋 **Aperçu**
 
----
+Infrastructure as Code pour héberger un site web statique avec S3 (privé) + CloudFront (CDN) + HTTPS automatique.
 
-## 📋 **Table des matières**
+**Architecture :** `Internet → CloudFront → S3 Bucket (Privé)`
 
-- [🎯 Aperçu](#-aperçu)
-- [🏗️ Architecture](#️-architecture)
-- [✨ Fonctionnalités](#-fonctionnalités)
-- [🛠️ Prérequis](#️-prérequis)
-- [🚀 Déploiement rapide](#-déploiement-rapide)
-- [📁 Structure du projet](#-structure-du-projet)
-- [🔧 Configuration](#-configuration)
-- [📝 Commandes utiles](#-commandes-utiles)
-- [🌐 Accès au site](#-accès-au-site)
-- [💰 Coûts AWS](#-coûts-aws)
-- [🔒 Sécurité](#-sécurité)
-- [🚨 Dépannage](#-dépannage)
-- [🧹 Nettoyage](#-nettoyage)
+## 🛠️ **Installation rapide**
 
----
+### Prérequis
+- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) configuré
+- [Terraform](https://terraform.io/downloads) installé
+- 
+# 1. Cloner le projet
+git clone https://github.com/votre-username/terraform-aws-static-website-simple.git
+cd terraform-aws-static-website-simple
 
-## 🎯 **Aperçu**
+# 2. Ajouter votre site web dans app/
+echo '<h1>🚀 Mon site AWS !</h1>' > app/index.html
 
-Ce projet déploie automatiquement un site web statique sur AWS avec les meilleures pratiques :
+# 3. Déployer l'infrastructure
+terraform init
+terraform apply  # Tapez "yes"
 
-- **S3** pour le stockage (bucket privé)
-- **CloudFront** pour la distribution mondiale (CDN)
-- **HTTPS** automatique et sécurisé
-- **Origin Access Control** (OAC) pour la sécurité
-- **Cache optimisé** pour les performances
-- **Infrastructure as Code** avec Terraform
+# 4. Uploader le contenu
+aws s3 sync app/ s3://$(terraform output -raw s3_bucket_name)/
 
-**🌐 Site de démonstration :** `https://votre-distribution.cloudfront.net`
+# 5. Accéder au site
+terraform output website_url
 
----
+aws configure  # Configurer AWS
 
-## 🏗️ **Architecture**
+terraform-aws-static-website-simple/
+├── main.tf              # Infrastructure AWS
+├── variables.tf         # Configuration
+├── outputs.tf           # URLs et infos
+├── app/                 # Votre site web
+│   ├── index.html
+│   └── style.css
+└── README.md
+
+# Voir l'URL du site
+terraform output website_url
+
+# Mettre à jour le contenu
+aws s3 sync app/ s3://$(terraform output -raw s3_bucket_name)/ --delete
+
+# Invalider le cache après modifications
+aws cloudfront create-invalidation --distribution-id $(terraform output -raw cloudfront_distribution_id) --paths '/*'
+
+# Détruire l'infrastructure
+terraform destroy
+
+
