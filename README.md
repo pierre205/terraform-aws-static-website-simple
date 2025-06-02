@@ -249,9 +249,6 @@ terraform validate
 Après déploiement, votre site est accessible via :
 
 ```bash
-# URL CloudFront (production)
-https://d1234567890abc.cloudfront.net
-
 # Obtenir l'URL via Terraform
 terraform output website_url
 ```
