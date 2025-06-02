@@ -17,7 +17,6 @@ Un projet d'infrastructure as code pour héberger un site web statique sur AWS a
 - [🏗️ Architecture](#️-architecture)
 - [✨ Fonctionnalités](#-fonctionnalités)
 - [🛠️ Prérequis](#️-prérequis)
-- [🚀 Déploiement rapide](#-déploiement-rapide)
 - [📁 Structure du projet](#-structure-du-projet)
 - [🔧 Configuration](#-configuration)
 - [📝 Commandes utiles](#-commandes-utiles)
@@ -117,17 +116,6 @@ aws sts get-caller-identity
 # Cloner le repository
 git clone https://github.com/pierre205/terraform-aws-static-website-simple.git
 cd terraform-aws-static-website-simple
-
-# Créer votre contenu web
-mkdir -p app
-echo '<!DOCTYPE html>
-<html>
-<head><title>🚀 Mon Site AWS</title></head>
-<body>
-  <h1>🎉 Site déployé avec Terraform !</h1>
-  <p>Hébergé sur AWS S3 + CloudFront</p>
-</body>
-</html>' > app/index.html
 ```
 
 ### 2️⃣ Déploiement infrastructure
@@ -150,10 +138,6 @@ aws s3 sync app/ s3://$(terraform output -raw s3_bucket_name)/
 # Obtenir l'URL du site
 terraform output website_url
 ```
-
-⏱️ **Temps de déploiement :** 5-10 minutes
-
----
 
 ## 📁 **Structure du projet**
 
