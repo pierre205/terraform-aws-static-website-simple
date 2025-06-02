@@ -9,24 +9,6 @@ Un projet d'infrastructure as code pour héberger un site web statique sur AWS a
 ![HTTPS](https://img.shields.io/badge/HTTPS-Enabled-green)
 ![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
 
----
-
-## 📋 **Table des matières**
-
-- [🎯 Aperçu](#-aperçu)
-- [🏗️ Architecture](#️-architecture)
-- [✨ Fonctionnalités](#-fonctionnalités)
-- [🛠️ Prérequis](#️-prérequis)
-- [📁 Structure du projet](#-structure-du-projet)
-- [🔧 Configuration](#-configuration)
-- [📝 Commandes utiles](#-commandes-utiles)
-- [🌐 Accès au site](#-accès-au-site)
-- [🔒 Sécurité](#-sécurité)
-- [🚨 Dépannage](#-dépannage)
-- [🧹 Nettoyage](#-nettoyage)
-
----
-
 ## 🎯 **Aperçu**
 
 Ce projet déploie automatiquement un site web statique sur AWS avec les meilleures pratiques :
