@@ -22,7 +22,6 @@ Un projet d'infrastructure as code pour héberger un site web statique sur AWS a
 - [🔧 Configuration](#-configuration)
 - [📝 Commandes utiles](#-commandes-utiles)
 - [🌐 Accès au site](#-accès-au-site)
-- [💰 Coûts AWS](#-coûts-aws)
 - [🔒 Sécurité](#-sécurité)
 - [🚨 Dépannage](#-dépannage)
 - [🧹 Nettoyage](#-nettoyage)
