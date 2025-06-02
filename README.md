@@ -15,7 +15,9 @@ Infrastructure as Code pour héberger un site web statique avec S3 (privé) + Cl
 ### Prérequis
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) configuré
 - [Terraform](https://terraform.io/downloads) installé
-- 
+
+```bash
+aws configure  # Configurer AWS
 # 1. Cloner le projet
 git clone https://github.com/votre-username/terraform-aws-static-website-simple.git
 cd terraform-aws-static-website-simple
@@ -33,9 +35,7 @@ aws s3 sync app/ s3://$(terraform output -raw s3_bucket_name)/
 # 5. Accéder au site
 terraform output website_url
 
-aws configure  # Configurer AWS
-
-terraform-aws-static-website-simple/
+**terraform-aws-static-website-simple/
 ├── main.tf              # Infrastructure AWS
 ├── variables.tf         # Configuration
 ├── outputs.tf           # URLs et infos
@@ -43,17 +43,4 @@ terraform-aws-static-website-simple/
 │   ├── index.html
 │   └── style.css
 └── README.md
-
-# Voir l'URL du site
-terraform output website_url
-
-# Mettre à jour le contenu
-aws s3 sync app/ s3://$(terraform output -raw s3_bucket_name)/ --delete
-
-# Invalider le cache après modifications
-aws cloudfront create-invalidation --distribution-id $(terraform output -raw cloudfront_distribution_id) --paths '/*'
-
-# Détruire l'infrastructure
-terraform destroy
-
-
+**
