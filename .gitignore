@@ -1,0 +1,21 @@
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfplan
+*.tfvars
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+EOF

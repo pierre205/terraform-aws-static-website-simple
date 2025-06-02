@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site statique déployé avec Terraform sur AWS">
+    <meta name="author" content="Votre Nom">
+    
+    <title>Mon Site Statique AWS</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🚀 Site Statique AWS</h1>
+            <p class="subtitle">Déployé avec Terraform + S3 + CloudFront</p>
+        </header>
+
+        <main class="main">
+            <section class="hero">
+                <h2>Infrastructure Cloud-Native</h2>
+                <p>Ce site est hébergé sur Amazon S3 et distribué globalement via CloudFront CDN.</p>
+                
+                <div class="tech-stack">
+                    <span class="tech">Terraform</span>
+                    <span class="tech">AWS S3</span>
+                    <span class="tech">CloudFront</span>
+                    <span class="tech">HTTPS</span>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>🔒 Sécurisé</h3>
+                        <p>HTTPS par défaut avec certificat SSL CloudFront</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>⚡ Rapide</h3>
+                        <p>CDN global avec cache optimisé</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>💰 Économique</h3>
+                        <p>Serverless, pas de serveur à maintenir</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🔄 Scalable</h3>
+                        <p>Gère automatiquement le trafic</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info">
+                <h3>📊 Informations Techniques</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Région:</strong> <span id="region">Loading...</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>CDN:</strong> <span id="cdn">CloudFront</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Protocole:</strong> <span id="protocol">HTTPS</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Déployé:</strong> <span id="deployment-time">Loading...</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="commands">
+                <h3>🛠️ Commandes Utiles</h3>
+                <div class="command-block">
+                    <h4>Déployer les changements:</h4>
+                    <code id="sync-command">aws s3 sync website/ s3://your-bucket/ --delete</code>
+                    <button onclick="copyCommand('sync-command')" class="copy-btn">📋 Copier</button>
+                </div>
+                
+                <div class="command-block">
+                    <h4>Invalider le cache:</h4>
+                    <code id="invalidation-command">aws cloudfront create-invalidation --distribution-id YOUR-ID --paths "/*"</code>
+                    <button onclick="copyCommand('invalidation-command')" class="copy-btn">📋 Copier</button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Fait avec ❤️ et Terraform • <span id="current-year"></span></p>
+            <p><small>Hébergé sur AWS S3 + CloudFront</small></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
