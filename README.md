@@ -257,30 +257,6 @@ https://d1234567890abc.cloudfront.net
 terraform output website_url
 ```
 
-### Propagation DNS
-- ⏱️ **Premier déploiement :** 5-15 minutes
-- ⏱️ **Mises à jour cache :** 5-10 minutes
-- ⚡ **Invalidation forcée :** 30 secondes - 2 minutes
-
----
-
-## 💰 **Coûts AWS**
-
-### Estimation mensuelle
-
-| Service | Usage typique | Coût mensuel |
-|---------|---------------|-------------|
-| **S3 Storage** | 1 GB | ~$0.02 |
-| **S3 Requests** | 10,000 GET | ~$0.01 |
-| **CloudFront** | 10 GB transfer | ~$0.85 |
-| **CloudFront Requests** | 100,000 | ~$0.10 |
-| **Total** | Site personnel | **~$1.00** |
-
-### 🆓 AWS Free Tier (12 premiers mois)
-- S3 : 5 GB gratuits
-- CloudFront : 50 GB gratuits + 2M requêtes
-- **Coût réel :** Souvent gratuit la première année !
-
 ---
 
 ## 🔒 **Sécurité**
@@ -377,58 +353,4 @@ terraform destroy  # Confirmer avec "yes"
 # 3. Nettoyage local
 rm -rf .terraform/ terraform.tfstate*
 ```
-
-### 🔄 Suppression sélective
-
-```bash
-# Supprimer seulement CloudFront (garde S3)
-terraform destroy -target=aws_cloudfront_distribution.website
-
-# Supprimer seulement S3 (vider d'abord!)
-terraform destroy -target=aws_s3_bucket.website
-```
-
----
-
-## 🤝 **Contribution**
-
-1. **Fork** le projet
-2. Créer une **branche** (`git checkout -b feature/nouvelle-fonctionnalite`)
-3. **Commit** vos changements (`git commit -am 'Ajout nouvelle fonctionnalité'`)
-4. **Push** la branche (`git push origin feature/nouvelle-fonctionnalite`)
-5. Créer une **Pull Request**
-
----
-
-## 📞 **Support**
-
-- 🐛 **Bug ?** → [Créer une issue](https://github.com/pierre205/terraform-aws-static-website-simple/issues)
-- 💡 **Suggestion ?** → [Discussions](https://github.com/pierre205/terraform-aws-static-website-simple/discussions)
-- 📧 **Contact direct :** pierre205@example.com
-
----
-
-## 📜 **Licence**
-
-Ce projet est sous licence **MIT** - voir le fichier [LICENSE](LICENSE) pour plus de détails.
-
----
-
-## ⭐ **Remerciements**
-
-- AWS pour leur infrastructure cloud
-- Terraform pour l'IaC
-- La communauté DevOps pour les bonnes pratiques
-
----
-
-<div align="center">
-
-**⭐ Si ce projet vous aide, donnez une étoile !**
-
-**🔗 Partagez avec la communauté DevOps**
-
-[![GitHub stars](https://img.shields.io/github/stars/pierre205/terraform-aws-static-website-simple?style=social)](https://github.com/pierre205/terraform-aws-static-website-simple)
-[![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Fpierre205%2Fterraform-aws-static-website-simple)](https://twitter.com/intent/tweet?text=D%C3%A9ployer%20un%20site%20statique%20sur%20AWS%20avec%20Terraform&url=https://github.com/pierre205/terraform-aws-static-website-simple)
-
 </div>
