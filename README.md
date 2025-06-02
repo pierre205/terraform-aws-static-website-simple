@@ -40,7 +40,7 @@ Ce projet déploie automatiquement un site web statique sur AWS avec les meilleu
 - **Cache optimisé** pour les performances
 - **Infrastructure as Code** avec Terraform
 
-**🌐 Site de démonstration :** `https://votre-distribution.cloudfront.net`
+**🌐 Site de démonstration :** `(https://d2ypcj0ochkiuk.cloudfront.net/)`
 
 ### **Composants AWS créés :**
 
